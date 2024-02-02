@@ -1,20 +1,18 @@
 const mongoose = require("mongoose");
+const Options = require('./options');
 
 const questionSchema = new mongoose.Schema(
   {
-    title: {
+    question : {
       type: String,
       required: true,
     },
-    option: [
+    options: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Options",
       },
     ],
-    vote: {
-      type: Boolean,
-    },
   },
   {
     timestamps: true,

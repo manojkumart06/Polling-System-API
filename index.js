@@ -1,18 +1,16 @@
 const express = require('express');
-const port = 7001;
-const db = require('./config/dbconnection');
-const mongoose = require('mongoose');
-
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+const db = require('./config/dbconnection');
 
-//routing
-app.use('/',require('./routes/index'));
+app.use(express.urlencoded({extended : false}));
 
+app.use('/', require('./routes/'))
 
-app.listen(port,function(err){
+app.listen(7000, (err)=>{
     if(err){
-        console.log("error in creating port",err);
+        console.log("Error Connecting to Server!");
+        return
     }
-    console.log('Successfully port is up : ',port);
+
+    console.log("Successfully Connected to Server! 7000");
 })
