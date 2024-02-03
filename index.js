@@ -1,4 +1,5 @@
 const express = require('express');
+const port = 7000;
 const app = express();
 const db = require('./config/dbconnection');
 
@@ -6,11 +7,10 @@ app.use(express.urlencoded({extended : false}));
 
 app.use('/', require('./routes/'))
 
-app.listen(7000, (err)=>{
-    if(err){
-        console.log("Error Connecting to Server!");
-        return
+app.listen(port, (err) => {
+    if (err) {
+        console.error('Error starting the server:', err);
+    } else {
+        console.log('Your server is running on port', port);
     }
-
-    console.log("Successfully Connected to Server! 7000");
-})
+});
