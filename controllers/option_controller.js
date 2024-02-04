@@ -9,7 +9,7 @@ module.exports.create = (req, res) => {
       if (option) {
         console.log("Successfully Created Option!!");
 
-        option.link_to_vote = `http://localhost:7000/api/options/${option._id}/add_vote`;
+        option.link_to_vote = `http://localhost:7001/api/options/${option._id}/add_vote`;
         option.save();
 
         Questions.findById(questionId)
